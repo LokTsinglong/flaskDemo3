@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>仪表盘</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="main-nav">
+        <div class="nav-brand">test系统</div>
+        <ul class="nav-menu">
+            <li><a href="{{ url_for('workspace.workspace1') }}" class="nav-link">工作区一</a></li>
+            <!-- <li><a href="{{ url_for('workspace.workspace2') }}" class="nav-link">工作区二</a></li>
+            <li><a href="{{ url_for('workspace.workspace3') }}" class="nav-link">工作区三</a></li> -->
+        </ul>
+        <!-- <div class="user-info">
+            <span class="username">{{ username }}</span>
+            <a href="{{ url_for('auth.logout') }}" class="logout-btn">退出登录</a>
+        </div> -->
+    </nav>
+    <div class="dashboard-container">
+        <h1>欢迎回来, {{ username }}!</h1>
+        <p>您已成功登录系统</p>
+        <a href="{{ url_for('auth.logout') }}"  class="logout-btn">退出登录</a>
+    </div>
+</body>
+</html>

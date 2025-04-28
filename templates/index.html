@@ -1,10 +1,45 @@
-<html>
+<!-- <html>
    <head>
       <script type = "text/javascript" 
          src = "{{ url_for('static', filename = 'hello.js') }}" ></script>
    </head>
 
    <body>
+      <h1>Welcome!</h1>
       <input type = "button" onclick = "sayHello()" value = "Say Hello" />
    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户登录</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>用户登录</h1>
+        {% if error %}
+        <div class="error-msg">{{ error }}</div>
+        {% endif %}
+        <form action="{{ url_for('auth.login') }}" method="post">
+            <div class="form-group">
+                <input type="text" name="username" placeholder="用户名" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="密码" required>
+            </div>
+               <!-- 新增：角色选择下拉菜单 -->
+            <div class="form-group">
+                <select name="role" class="form-control" required>
+                    <option value="" disabled selected>请选择身份</option>
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="staff">Staff</option>
+                </select>
+            </div>
+            <button type="submit">登 录</button>
+        </form>
+    </div>
+</body>
 </html>
