@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片文字识别</title>
+    <!-- 注意检查是否导入styles.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>test系统</h1>
+    <div class="container">
+        <h1>图片文字识别工具</h1>
+        
+        <div class="upload-box">
+            <input type="file" id="imageInput" accept=".png,.jpg,.jpeg">
+            <label for="imageInput" class="upload-label">
+                <span>点击选择图片</span>
+                <span class="supported-files">(支持格式: PNG/JPG/JPEG)</span>
+            </label>
+        </div>
+
+        <div class="preview-box">
+            <img id="imagePreview" alt="图片预览">
+        </div>
+        <button class="process-btn" id="processBtn">开始识别</button>
+        <!-- <button class="process-btn" onclick="processImage()">开始识别</button> -->
+
+        <div class="result-box">
+            <h2>识别结果：</h2>
+            <pre id="resultText">等待识别结果...</pre>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='ocr.js') }}"></script>
+    
+</body>
+</html>

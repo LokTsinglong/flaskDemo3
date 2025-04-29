@@ -110,3 +110,108 @@ button {
     background: #34495e;
     color: #3498db;
 }
+
+
+/* static css for workspace1 */
+/* body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+} */
+
+.upload-box {
+    border: 2px dashed #bdc3c7;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+.upload-box:hover {
+    border-color: #3498db;
+}
+
+#imageInput {
+    display: none;
+}
+
+.upload-label {
+    cursor: pointer;
+    display: block;
+    color: #7f8c8d;
+}
+
+.supported-files {
+    font-size: 0.9em;
+    color: #95a5a6;
+    display: block;
+    margin-top: 5px;
+}
+
+.preview-box {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.process-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto 20px;
+    transition: background 0.3s;
+}
+
+.process-btn:hover {
+    background: #2980b9;
+}
+
+.result-box {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #3498db;
+}
+
+.result-box h2 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+#resultText {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 0;
+}

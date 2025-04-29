@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from api.auth import auth_api
 from api.dashboard import dashboard_api
-from api.workspace import workspace_api 
+from api.workspace import workspace_main
 from flask_migrate import Migrate
 
 app = Flask(__name__,static_folder="static")
@@ -31,7 +31,7 @@ app = Flask(__name__,static_folder="static")
 app.secret_key = 'your_secret_key' 
 app.register_blueprint(auth_api) 
 app.register_blueprint(dashboard_api)
-app.register_blueprint(workspace_api)
+app.register_blueprint(workspace_main)
 
 class Config(object):
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/flask_app_3'
