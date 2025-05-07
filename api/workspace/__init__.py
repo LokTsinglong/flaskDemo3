@@ -14,3 +14,7 @@ def index():
 #延迟导入，否则可能会有(most likely due to a circular import
 from .workspace1 import workspace1_api
 workspace_main.register_blueprint(workspace1_api, url_prefix='/workspace1')
+
+# 每次新建一个workspace都要在这边注册一下
+from .workspace2 import workspace2_api
+workspace_main.register_blueprint(workspace2_api, url_prefix='/workspace2')

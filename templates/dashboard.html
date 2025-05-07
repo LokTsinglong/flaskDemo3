@@ -11,6 +11,7 @@
         <ul class="nav-menu">
             <!-- 修改一下这边的url对应的函数 -->
             <li><a href="{{ url_for('workspace_main.workspace1_api.index') }}" class="nav-link">工作区一</a></li>
+            <li><a href="{{ url_for('workspace_main.workspace2_api.index') }}" class="nav-link">工作区二</a></li>
             
         </ul>
         <!-- <div class="user-info">
@@ -19,7 +20,7 @@
         </div> -->
     </nav>
     <div class="dashboard-container">
-        <h2>欢迎回来, {{ username }}!</h2>
+        <h2>欢迎回来 {{ username }}!</h2>
         <p>您已成功登录系统</p>
         <a href="{{ url_for('auth.logout') }}"  class="logout-btn">退出登录</a>
     </div>

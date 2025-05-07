@@ -157,6 +157,16 @@ h1{
     margin-bottom: 30px;
 } */
 
+/* 页面标题 */
+.page-title {
+    text-align: center;
+    margin: 80px 0 40px; /* 上方留出导航栏空间 */
+    color: #2c3e50;
+    font-size: 2.2em;
+    position: relative;
+}
+/* 有问题，会出现在container的左边 */
+
 .container {
     width: 85%; /* 添加弹性宽度 */
     margin: 20px auto; /* 增加上下边距 */
@@ -164,7 +174,20 @@ h1{
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;        /* 启用Flex布局 */
+    gap: 40px;           /* 替代原来的gap:40px */
+    justify-content: space-between; 
 
+}
+
+/* 修改左右布局的尝试 */
+
+.left-column, .right-column {
+    flex: 1;  /* 关键：等分剩余空间 */
+    min-width: 400px;  /* 最小宽度防止挤压 */
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;    /* 防止内容过窄 */
 }
 
 /* 隐藏原生的组件 */
@@ -290,3 +313,25 @@ h1{
 ::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
 }
+
+/* workspace2的样式 */
+.status-box {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    min-height: 40px;
+}
+
+/* 按钮组样式 */
+/* .left-column button {
+    margin: 5px;
+    transition: all 0.3s;
+}
+
+#uploadBtn { background: #2196F3; }
+#refreshBtn { background: #9C27B0; }
+
+button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+} */

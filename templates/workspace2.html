@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>基于。。。。的知识图谱</title>
+        <!-- 注意检查是否导入styles.css -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://unpkg.com/neovis.js@2.0.0/dist/neovis.js"></script>
+    </head>
+    <body>
+        <nav class="main-nav">
+            <!-- <div class="nav-brand">test系统</div> -->
+            <!--修改为可点击的标题  -->
+            <a href="{{ url_for('workspace_main.index') }}" class="nav-brand">test系统</a>
+            <ul class="nav-menu">
+            <!-- 修改一下这边的url对应的函数 -->
+                <li><a href="{{ url_for('workspace_main.workspace1_api.index') }}" class="nav-link">工作区一</a></li>
+                <li><a href="{{ url_for('workspace_main.workspace2_api.index') }}" class="nav-link">工作区二</a></li>
+            
+            </ul>
+            <!-- <div class="user-info">
+                <span class="username">{{ username }}</span>
+                <a href="{{ url_for('auth.logout') }}" class="logout-btn">退出登录</a>
+            </div> -->
+        </nav>
+
+        <!-- 新增标题 -->
+        <!-- 后续可添加 -->
+        
+        
+        <div class="container">
+            <!-- 左侧上传区域 -->
+            <div class="left-column">
+                <h2>文件上传改</h2>
+                <input type="file" id="excelFile" accept=".xls,.xlsx">
+                <button id="uploadBtn">上传数据</button>
+                <br></br>
+                <button id="refreshBtn">刷新图谱</button>
+                <div id="uploadStatus" class="status-box"></div>
+            </div>
+    
+        
+             <!-- 右侧结果区 -->
+            
+            <div class="right-column">
+                <h2>交易图谱展示</h2>
+                <div id="viz" style="height: 75vh; background: #f8f9fa;"></div>
+            </div>
+               
+            
+        </div>
+         <!-- 引入独立JS文件 -->
+        <script src="{{ url_for('static', filename='neo4j.js') }}"></script>
+    </body>
