@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>图谱演示</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="/static/neovis.js"></script>
+    <style>
+        .container { display: flex; height: 100vh; }
+        .left { width: 200px; padding: 20px; background: #f0f0f0; }
+        #viz { flex: 1; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+            <!-- <div class="nav-brand">test系统</div> -->
+            <!--修改为可点击的标题  -->
+        <a href="{{ url_for('workspace_main.index') }}" class="nav-brand">E事务所审计辅助管理系统</a>
+        <ul class="nav-menu">
+            <!-- 修改一下这边的url对应的函数 -->
+           <ul class="nav-menu">
+            <!-- 修改一下这边的url对应的函数 -->
+            <li><a href="{{ url_for('workspace_main.workspace2_api.index') }}" class="nav-link">审计准则知识管理</a></li>
+            <li><a href="{{ url_for('workspace_main.workspace3_api.index') }}" class="nav-link">审计业务访谈可视化管理</a></li>
+            <li><a href="{{ url_for('workspace_main.workspace1_api.index') }}" class="nav-link">审计业务管理</a></li>
+            
+        </ul>
+            
+        </ul>
+            
+    </nav>
+    <!-- 为什么我刚刚只是把nav的模块加进来，整个页面的样式都发生了变化呢？ -->
+    <div class="container">
+        <div class="left">
+            <h3>上传Excel文件</h3>
+            <input type="file" id="excelFile" accept=".xls,.xlsx">
+            <button onclick="upload()">上传</button>
+            <div id="status"></div>
+        </div>
+        <div id="viz"></div>
+    </div>
+
+    <script>
+        let viz;
+
+        // 初始化图谱
+        function init() {
+            const config = {
+                containerId: "viz",
+                neo4j: {
+                    serverUrl: "bolt://localhost:7687",
+                    serverUser: "neo4j",
+                    serverPassword: "123456"
+                },
+                labels: {
+                    "StartIS": { label: "name" },
+                    "EndIS": { label: "name" }
+                },
+                relationships: {
+                    "Flow": { 
+                        caption: "amount",
+                        [NeoVis.NEOVIS_ADVANCED_CONFIG]: {
+                            color: "#FF6B6B"
+                        }
+                    }
+                },
+                initialCypher: "MATCH (n)-[r]->(m) RETURN n,r,m"
+            };
+            
+            viz = new NeoVis.default(config);
+            viz.render();
+        }
+
+        // 文件上传
+        async function upload() {
+            const file = document.getElementById('excelFile').files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            document.getElementById('status').innerHTML = "上传中...";
+            
+            try {
+                await fetch('/upload', { method: 'POST', body: formData });
+                viz.render(); // 刷新图谱
+                document.getElementById('status').innerHTML = "上传成功！";
+            } catch(e) {
+                document.getElementById('status').innerHTML = "上传失败";
+            }
+        }
+
+        // 页面加载初始化
+        window.onload = init;
+    </script>
+</body>
+</html>

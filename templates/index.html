@@ -13,12 +13,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>用户登录</title>
+    <title>E事务所审计辅助管理系统用户登录</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="login-container">
-        <h2>用户登录</h2>
+        <h2>审计辅助系统用户登录</h2>
         {% if error %}
         <div class="error-msg">{{ error }}</div>
         {% endif %}
@@ -34,6 +34,7 @@
                 <select name="role" class="form-control" required>
                     <option value="" disabled selected>请选择身份</option>
                     <option value="admin">Admin</option>
+                    <option value="admin">Partner</option>
                     <option value="manager">Manager</option>
                     <option value="staff">Staff</option>
                 </select>

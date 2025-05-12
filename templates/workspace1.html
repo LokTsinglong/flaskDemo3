@@ -10,11 +10,16 @@
     <nav class="main-nav">
         <!-- <div class="nav-brand">test系统</div> -->
         <!--修改为可点击的标题  -->
-        <a href="{{ url_for('workspace_main.index') }}" class="nav-brand">test系统</a>
+        <a href="{{ url_for('workspace_main.index') }}" class="nav-brand">E事务所审计辅助管理系统</a>
         <ul class="nav-menu">
         <!-- 修改一下这边的url对应的函数 -->
-            <li><a href="{{ url_for('workspace_main.workspace1_api.index') }}" class="nav-link">工作区一</a></li>
-            <li><a href="{{ url_for('workspace_main.workspace2_api.index') }}" class="nav-link">工作区二</a></li>
+            <ul class="nav-menu">
+            <!-- 修改一下这边的url对应的函数 -->
+            <li><a href="{{ url_for('workspace_main.workspace2_api.index') }}" class="nav-link">审计准则知识管理</a></li>
+            <li><a href="{{ url_for('workspace_main.workspace3_api.index') }}" class="nav-link">审计业务访谈可视化管理</a></li>
+            <li><a href="{{ url_for('workspace_main.workspace1_api.index') }}" class="nav-link">审计业务管理</a></li>
+            
+        </ul>
         
         </ul>
         <!-- <div class="user-info">
@@ -23,10 +28,11 @@
         </div> -->
     </nav>
     
-    <div class="container">
+    <div class="container-page1">
         <!-- 导航栏 -->
 
         <h1 class="title-spacer">穿行测试用例识别</h1>
+        
         <div class="keyword-input">
             <label for="keyword">关键词：</label>
             <input type="text" id="keyword" placeholder="输入要查找的词汇（如'编号：'）">

@@ -18,3 +18,6 @@ workspace_main.register_blueprint(workspace1_api, url_prefix='/workspace1')
 # 每次新建一个workspace都要在这边注册一下
 from .workspace2 import workspace2_api
 workspace_main.register_blueprint(workspace2_api, url_prefix='/workspace2')
+# 再新建一个workspace3
+from .workspace3 import workspace3_api
+workspace_main.register_blueprint(workspace3_api, url_prefix='/workspace3')

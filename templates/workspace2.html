@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>基于。。。。的知识图谱</title>
+        <title>基于审计业务访谈的知识图谱</title>
         <!-- 注意检查是否导入styles.css -->
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
         <script src="/static/neovis.js"></script>
@@ -11,27 +11,29 @@
         <nav class="main-nav">
             <!-- <div class="nav-brand">test系统</div> -->
             <!--修改为可点击的标题  -->
-            <a href="{{ url_for('workspace_main.index') }}" class="nav-brand">test系统</a>
+            <a href="{{ url_for('workspace_main.index') }}" class="nav-brand">E事务所审计辅助管理系统</a>
             <ul class="nav-menu">
             <!-- 修改一下这边的url对应的函数 -->
-                <li><a href="{{ url_for('workspace_main.workspace1_api.index') }}" class="nav-link">工作区一</a></li>
-                <li><a href="{{ url_for('workspace_main.workspace2_api.index') }}" class="nav-link">工作区二</a></li>
+                <ul class="nav-menu">
+            <!-- 修改一下这边的url对应的函数 -->
+            <li><a href="{{ url_for('workspace_main.workspace2_api.index') }}" class="nav-link">审计准则知识管理</a></li>
+            <li><a href="{{ url_for('workspace_main.workspace3_api.index') }}" class="nav-link">审计业务访谈可视化管理</a></li>
+            <li><a href="{{ url_for('workspace_main.workspace1_api.index') }}" class="nav-link">审计业务管理</a></li>
+
+        </ul>
             
             </ul>
-            <!-- <div class="user-info">
-                <span class="username">{{ username }}</span>
-                <a href="{{ url_for('auth.logout') }}" class="logout-btn">退出登录</a>
-            </div> -->
+            
         </nav>
 
         <!-- 新增标题 -->
         <!-- 后续可添加 -->
         
         
-        <div class="container">
+        <div class="container-page2">
             <!-- 左侧上传区域 -->
-            <div class="left-column">
-                <h2>文件上传改</h2>
+            <div class="container-page2.left-column">
+                <h2>文件上传</h2>
                 <input type="file" id="excelFile" accept=".xls,.xlsx">
                 <button id="uploadBtn">上传数据</button>
                 <br></br>
@@ -42,7 +44,7 @@
         
              <!-- 右侧结果区 -->
             
-            <div class="right-column">
+            <div class="container-page2.right-column">
                 <h2>交易图谱展示</h2>
                 <div id="viz" style="height: 75vh; background: #f8f9fa;"></div>
             </div>
